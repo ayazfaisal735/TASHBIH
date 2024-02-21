@@ -24,16 +24,33 @@ let count = 0;
 const target = 34;
 countButton.addEventListener("click",function(){
       addInnerElement(countTasbih,count);
+      addClass(takeElement("btn-details").childNodes[1] , "bg-green-500");
       count++;
       if(count >= target){
-            addClass(countButton,"btn-disabled")
+            addClass(countButton,"btn-disabled");
+            addClass(resetButton,"disabled")
       }
 })
+let resetCount = 0;
 resetButton.addEventListener("click",function(){
       count = 0;
+      resetCount++;
       addInnerElement( countTasbih,count);
       removeClass(countButton,"btn-disabled");
+      if(resetCount === 1){
+            addClass(takeElement("btn-details").childNodes[3],"bg-green-500");
+      }
+      if(resetCount === 2){
+            addClass(takeElement("btn-details").childNodes[5],"bg-green-500");
+      }
+      if(resetCount ===3){
+            removeClass(takeElement("btn-details").childNodes[3],"bg-green-500");
+            removeClass(takeElement("btn-details").childNodes[5],"bg-green-500");
+            removeClass(takeElement("btn-details").childNodes[1],"bg-green-500");
+      }
 })
+//  const btnDetails = takeElement("btn-details");
+//  console.log(btnDetails.childNodes[3]);
 
 
 
